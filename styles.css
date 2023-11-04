@@ -1,0 +1,118 @@
+@import url("https://fonts.google.com/specimen/Manrope");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: hsl(218, 23%, 16%);
+  font-family: "Manrope", sans-serif;
+  text-align: center;
+}
+
+h2 {
+  color: #00ff99;
+  font-size: 12px;
+  margin-top: 55px;
+  letter-spacing: 5px;
+  font-weight: bolder;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  color: whitesmoke;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.box {
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  height: 330px;
+  background-color: hsl(217, 19%, 24%);
+  border-radius: 15px;
+}
+
+#advice-container {
+  color: hsl(193, 38%, 86%);
+  font-size: 27px;
+  font-weight: 700;
+  padding: 15px 50px;
+  line-height: 1.4em;
+}
+
+.circle {
+  width: 65px;
+  height: 65px;
+  background-color: hsl(150, 100%, 66%);
+  border-radius: 50%;
+  position: fixed;
+  bottom: -19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: box-shadow 0.4s ease;
+}
+
+.circle:hover {
+  box-shadow: 0 0 30px #00ff99;
+  cursor: pointer;
+}
+
+.circle img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.divider {
+  position: fixed;
+  bottom: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.disabled-button {
+  pointer-events: none; /* Prevent the button from being clickable */
+  box-shadow: none; /* Change the background color to visually indicate the disabled state */
+}
+
+@media (max-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+/* @media (min-width: 640px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1280px) {
+}
+@media (min-width: 1536px) {
+} */
