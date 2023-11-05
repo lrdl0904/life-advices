@@ -1,15 +1,29 @@
 const adviceContainer = document.getElementById("advice-container");
+const box = document.getElementById("box");
 const adviceElement = document.getElementById("advice");
 const adviceButton = document.querySelector(".circle");
 const adviceNumber = document.getElementById("advice__number");
+const img = document.getElementById("divider");
 let counter = 0;
 
+// window.innerWidth <= 560
+//   ? (img.src = "images/pattern-divider-mobile.svg")
+//   : (img.src = "images/pattern-divider-desktop.svg");
 fetchAdvice();
+// Add an event listener to the window's resize event
+window.addEventListener("resize", function () {
+  window.innerWidth <= 560
+    ? (img.src = "images/pattern-divider-mobile.svg")
+    : (img.src = "images/pattern-divider-desktop.svg");
+});
 
 adviceButton.addEventListener("click", function () {
   adviceButton.classList.add("disabled-button");
   fetchAdvice();
-  // Set a timeout to re-enable the button after 3 seconds (3000 milliseconds)
+  //this updates the height of box
+  updateBoxHeight();
+
+  // Set a timeout to re-enable the button after 2 seconds (2000 milliseconds)
   setTimeout(() => {
     adviceButton.classList.remove("disabled-button");
   }, 2000);
@@ -39,4 +53,13 @@ function fetchAdvice() {
       console.error("Error:", error);
       adviceContainer.textContent = "Failed to fetch advice: " + error.message;
     });
+}
+
+function updateBoxHeight() {
+  const adviceHeight = adviceContainer.offsetHeight;
+
+  const minHeight = 200; // Minimum height
+
+  // Set the box height to the maximum of the advice content height and the minimum height
+  box.style.minHeight = `${Math.max(adviceHeight, minHeight)}px`;
 }
