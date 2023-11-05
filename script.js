@@ -4,7 +4,6 @@ const adviceElement = document.getElementById("advice");
 const adviceButton = document.querySelector(".circle");
 const adviceNumber = document.getElementById("advice__number");
 const img = document.getElementById("divider");
-let counter = 0;
 
 // window.innerWidth <= 560
 //   ? (img.src = "images/pattern-divider-mobile.svg")
@@ -40,14 +39,14 @@ function fetchAdvice() {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data && data.slip && data.slip.advice) {
         const advice = data.slip.advice;
         adviceContainer.textContent = '"' + advice + '"';
       } else {
         adviceContainer.textContent = "Failed to fetch advice.";
       }
-      counter++;
-      adviceNumber.textContent = `ADVICE #${counter}`;
+      adviceNumber.textContent = `ADVICE #${data.slip.id}`;
     })
     .catch((error) => {
       console.error("Error:", error);
